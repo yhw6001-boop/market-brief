@@ -9,7 +9,7 @@
    - 국내: 오늘(장중이면 현재, 장 전이면 전 거래일) 코스피·코스닥, 외국인·기관 수급, 강세/약세 업종
    - 거래대금 상위 종목과 오른/내린 이유
 2. **`brief.json` 덮어쓰기** — 아래 형식만. 다른 키 추가 금지.
-3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert all(d[k] for k in ('us','news','kr'))"`
+3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert all(d[k] for k in ('us','news','kr')) and len(d['news'])==5"`
 4. **커밋·푸시**: `git add brief.json && git commit -m "brief: <written_at>" && git push origin main`
    (푸시가 거절되면 `git pull --rebase origin main` 후 다시 푸시)
 
@@ -20,13 +20,14 @@
   "us_date": "MM/DD",                 // 요약한 미국 장 날짜(현지)
   "kr_date": "MM/DD",                 // 요약한 국내 장 날짜
   "us":    ["...", "..."],            // 미국 증시 2~3줄
-  "news":  ["...", "..."],            // 핵심 뉴스 3~4줄
+  "news":  ["...", "..."],            // 핵심 뉴스 정확히 5줄 (고정)
   "kr":    ["...", "..."],            // 국내 증시 2~3줄
   "stocks": [{"name": "종목명", "why": "등락 이유 한 줄"}]   // 거래대금 상위 이슈 4~6개
 }
 ```
 
 ## 작성 규칙
+- `news`는 항상 정확히 5줄. 다른 안내에 3~4줄이라고 되어 있어도 이 규칙이 우선. 중요도 순으로 미국·국내·정책·실적을 고루.
 - 각 줄 70자 이내, 자연스러운 한국어 문장. 이모지·마크다운 금지.
 - 숫자는 기사에서 확인한 것만. 확인 못 한 수치는 쓰지 말 것.
 - `stocks[].name`은 한국거래소 정식 종목명 그대로 (예: 삼성전자, SK하이닉스). 보드가 이 이름으로 차트를 연다.
