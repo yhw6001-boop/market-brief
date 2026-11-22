@@ -1,5 +1,5 @@
 {
-  "written_at": "2026-11-22 17:20",
+  "written_at": "2026-11-22 19:10",
   "us_date": "11/20",
   "kr_date": "11/20",
   "us": [
@@ -9,34 +9,142 @@
   ],
   "news": [
     {
-      "text": "앤트로픽 상장 이틀째 8.5% 급락, AI 투자 수익성 우려가 기술주 전반으로 확산",
-      "url": "https://biz.sbs.co.kr/article/20000347963",
-      "src": "SBS Biz",
-      "at": "2026-11-21 10:20"
+      "text": "나스닥 하루 5.3% 폭락해 올해 상승분 반납, 다우·S&P500은 조정 국면 진입",
+      "url": "https://www.segye.com/newsView/20261121504595",
+      "src": "세계일보",
+      "at": "2026-11-21"
     },
     {
-      "text": "AMD 겨냥 공매도 보고서·미국의 반도체 수출 규제 강화가 투자심리 압박",
-      "url": "https://www.blockmedia.co.kr/archives/1168308",
-      "src": "블록미디어",
-      "at": "2026-11-20 04:24"
-    },
-    {
-      "text": "엔비디아 한 주 약 23% 급락, 글로벌 금융위기 이후 최악의 주간 성적",
+      "text": "엔비디아 하루 14% 급락해 52주 신저가, 한 주 낙폭 약 23%로 금융위기 이후 최악",
       "url": "https://fnnews.com/news/202611210748273869",
       "src": "파이낸셜뉴스",
       "at": "2026-11-21 10:00"
     },
     {
-      "text": "S&P500 7거래일 연속 하락, 2020년 2월 이후 최장 하락 기록",
+      "text": "앤트로픽 상장 이틀째 8.5% 급락, 장중 공모가 83달러 근처까지 밀려",
       "url": "https://biz.sbs.co.kr/article/20000347963",
       "src": "SBS Biz",
       "at": "2026-11-21 10:20"
     },
     {
-      "text": "이번 주 내내 연준 추가 긴축 예고와 AI 인프라 투자 불안이 겹치며 심리 위축",
+      "text": "삼성전자 7%·SK하이닉스 6% 가까이 급락 마감, 외국인·기관 동반 매도",
+      "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008856131",
+      "src": "SBS",
+      "at": "2026-11-20"
+    },
+    {
+      "text": "코스피 5.21% 내린 4869.96, 종가 기준 10개월 만에 최저",
+      "url": "https://www.specialtimes.co.kr/news/articleView.html?idxno=488331",
+      "src": "스페셜타임스",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "코스피 이어 코스닥도 매도 사이드카 발동, 외국인·기관 2.5조원 순매도",
+      "url": "https://www.hankyung.com/article/2026112099276",
+      "src": "한국경제",
+      "at": "2026-11-20 13:52"
+    },
+    {
+      "text": "미국, 중국의 해외 데이터센터 경유 AI칩 이용 차단…동남아 수출도 허가제",
+      "url": "https://news.mtn.co.kr/article/2026111706303561846",
+      "src": "MTN",
+      "at": "2026-11-17"
+    },
+    {
+      "text": "AMD, 중국 제재 기업과 기술 연계 의혹 보고서 나온 뒤 13% 급락",
+      "url": "https://www.blockmedia.co.kr/archives/1168308",
+      "src": "블록미디어",
+      "at": "2026-11-20 04:24"
+    },
+    {
+      "text": "AI 인프라 투자 불안에 연준 추가 긴축 예고 겹쳐, WTI는 석 달 만에 최저",
       "url": "https://www.koreadaily.com/article/20261118145521255",
       "src": "코리아데일리",
       "at": "2026-11-19 07:26"
+    },
+    {
+      "text": "지난밤 뉴욕: 국채 금리 내리고 유가 반등, 금 선물은 4.6% 급락",
+      "url": "https://www.straightnews.co.kr/news/articleView.html?idxno=315879",
+      "src": "스트레이트뉴스",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "엔비디아 주간 23% 급락으로 18년 만의 최대 낙폭, AMD·마이크론도 13%대 하락",
+      "url": "https://www.wikitree.co.kr/articles/1176616",
+      "src": "위키트리",
+      "at": "2026-11-22"
+    },
+    {
+      "text": "급락장에 공매도 거래대금 1.4조원으로 증가, 반도체 3종목이 34% 차지",
+      "url": "https://www.topstarnews.net/news/articleView.html?idxno=16281728",
+      "src": "톱스타뉴스",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "삼성전기 12.54% 급락, AI 투자 우려 속 외국인·기관 대규모 매도",
+      "url": "https://www.topstarnews.net/news/articleView.html?idxno=16281777",
+      "src": "톱스타뉴스",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "국내외 증시 동반 급락, 주말 이후 반도체 대형주 향방에 관심 집중",
+      "url": "https://cbci.co.kr/news/articleView.html?idxno=629428",
+      "src": "CBC뉴스",
+      "at": "2026-11-22"
+    },
+    {
+      "text": "뉴욕 3대 지수, 지난해 4월 상호관세 충격 이후 최대 주간 하락률",
+      "url": "https://www.jeonmae.co.kr/news/articleView.html?idxno=1314265",
+      "src": "전국매일신문",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "엔비디아 호실적·앤트로픽 상장 흥행에도 기술주 투자심리 위축",
+      "url": "https://news.jkn.co.kr/post/1111342",
+      "src": "재경일보",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "미 반도체 쇼크에 삼전닉스 급락, 코스피 장중 4800선까지 밀려",
+      "url": "https://www.fnnews.com/news/202611201418180072",
+      "src": "파이낸셜뉴스",
+      "at": "2026-11-20"
+    },
+    {
+      "text": "앤트로픽 상장 첫날 17% 올랐지만 다우는 5만선 아래로 밀려",
+      "url": "https://news.tf.co.kr/read/ogmeta/2391248.htm",
+      "src": "더팩트",
+      "at": "2026-11-20 06:49"
+    },
+    {
+      "text": "앤트로픽 데뷔에도 AI 투자심리 못 살려…월가 하락, 금리 우려도 부담",
+      "url": "https://www.koreatimes.co.kr/world/20261120/wall-st-slides-as-anthropics-debut-fails-to-revive-ai-trade-optimism",
+      "src": "The Korea Times",
+      "at": "2026-11-20"
+    },
+    {
+      "text": "엔비디아 호실적 발표 날 뉴욕증시 혼조, 나스닥만 반등",
+      "url": "https://news.mtn.co.kr/article/2026111906412717812",
+      "src": "MTN",
+      "at": "2026-11-19"
+    },
+    {
+      "text": "코스피 5%대 급락 속 시총 상위 10종목 중 9종목 하락, 삼성전기 낙폭 최대",
+      "url": "https://www.cbci.co.kr/news/articleView.html?idxno=629216",
+      "src": "CBC뉴스",
+      "at": "2026-11-21"
+    },
+    {
+      "text": "정부, 증시 급락에 긴급 대응…신용융자 담보비율 유지의무 3개월 면제",
+      "url": "https://biz.sbs.co.kr/amp/article/20000344738",
+      "src": "SBS Biz",
+      "at": "2026-11-06 11:43"
+    },
+    {
+      "text": "미국, 엔비디아 스캔들 속 중국의 원격 AI칩 이용 막는 새 규칙 발표",
+      "url": "https://aljazeera.com/economy/2026/11/17/us-moves-to-block-chinas-remote-access-to-ai-chips-amid-nvidia-scandal",
+      "src": "Al Jazeera",
+      "at": "2026-11-17"
     }
   ],
   "kr": [
