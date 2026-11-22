@@ -1,5 +1,5 @@
 {
-  "written_at": "2026-11-22 13:55",
+  "written_at": "2026-11-22 17:10",
   "us_date": "11/20",
   "kr_date": "11/20",
   "us": [
@@ -10,23 +10,32 @@
   "news": [
     {
       "text": "앤트로픽 상장 이틀째 8.5% 급락, AI 투자 수익성 우려가 기술주 전반으로 확산",
-      "url": "https://biz.sbs.co.kr/article/20000347963"
+      "url": "https://biz.sbs.co.kr/article/20000347963",
+      "src": "SBS Biz",
+      "at": "2026-11-21"
     },
     {
       "text": "AMD 겨냥 공매도 보고서·미국의 반도체 수출 규제 강화가 투자심리 압박",
-      "url": "https://www.blockmedia.co.kr/archives/1168308"
+      "url": "https://www.blockmedia.co.kr/archives/1168308",
+      "src": "블록미디어"
     },
     {
       "text": "엔비디아 한 주 약 23% 급락, 글로벌 금융위기 이후 최악의 주간 성적",
-      "url": "https://fnnews.com/news/202611210748273869"
+      "url": "https://fnnews.com/news/202611210748273869",
+      "src": "파이낸셜뉴스",
+      "at": "2026-11-21 07:48"
     },
     {
       "text": "S&P500 7거래일 연속 하락, 2020년 2월 이후 최장 하락 기록",
-      "url": "https://biz.sbs.co.kr/article/20000347963"
+      "url": "https://biz.sbs.co.kr/article/20000347963",
+      "src": "SBS Biz",
+      "at": "2026-11-21"
     },
     {
       "text": "이번 주 내내 연준 추가 긴축 예고와 AI 인프라 투자 불안이 겹치며 심리 위축",
-      "url": "https://www.koreadaily.com/article/20261118145521255"
+      "url": "https://www.koreadaily.com/article/20261118145521255",
+      "src": "코리아데일리",
+      "at": "2026-11-18 14:26"
     }
   ],
   "kr": [
