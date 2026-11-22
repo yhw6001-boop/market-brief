@@ -7,9 +7,9 @@
 1. **조사** (WebSearch, 한국어 기사 위주. 최신 기사 날짜를 꼭 확인)
    - 미국: 가장 최근 정규장 마감 (3대 지수 등락률, 반도체지수, VIX, 금리·유가, 주요 종목과 그 이유)
    - 국내: 오늘(장중이면 현재, 장 전이면 전 거래일) 코스피·코스닥, 외국인·기관 수급, 강세/약세 업종
-   - 거래대금 상위 종목과 오른/내린 이유
+   - 거래대금 상위 종목과 오른/내린 이유: 미국(가장 최근 정규장, 달러 거래대금 기준) 상위 3개, 국내(코스피·코스닥 합산) 상위 3개
 2. **`brief.json` 덮어쓰기** — 아래 형식만. 다른 키 추가 금지.
-3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert all(d[k] for k in ('us','news','kr')) and len(d['news'])==5 and all(n['text'] and n['url'].startswith('http') for n in d['news'])"`
+3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert all(d[k] for k in ('us','news','kr')) and len(d['news'])==5 and all(n['text'] and n['url'].startswith('http') for n in d['news']) and [x['market'] for x in d['stocks']].count('us')==3 and [x['market'] for x in d['stocks']].count('kr')==3"`
 4. **커밋·푸시**: `git add brief.json && git commit -m "brief: <written_at>" && git push origin main`
    (푸시가 거절되면 `git pull --rebase origin main` 후 다시 푸시)
 
@@ -20,9 +20,12 @@
   "us_date": "MM/DD",                 // 요약한 미국 장 날짜(현지)
   "kr_date": "MM/DD",                 // 요약한 국내 장 날짜
   "us":    ["...", "..."],            // 미국 증시 2~3줄
-  "news":  [{"text": "...", "url": "https://..."}],   // 핵심 뉴스 정확히 5개 (고정), 각각 원문 기사 URL
+  "news":  [{"text": "...", "url": "https://..."}],   // 증시 뉴스 정확히 5개 (고정), 각각 원문 기사 URL
   "kr":    ["...", "..."],            // 국내 증시 2~3줄
-  "stocks": [{"name": "종목명", "why": "등락 이유 한 줄"}]   // 거래대금 상위 이슈 4~6개
+  "stocks": [                        // 거래대금 상위: 미국 3개 + 국내 3개, 정확히 6개
+    {"market": "us", "name": "엔비디아", "symbol": "NVDA", "c": -1.23, "why": "등락 이유 한 줄"},
+    {"market": "kr", "name": "삼성전자", "c": 1.23, "why": "등락 이유 한 줄"}
+  ]
 }
 ```
 
@@ -30,6 +33,9 @@
 - `news`는 항상 정확히 5개. 각 항목의 `url`은 그 줄의 근거가 된 원문 기사 주소(WebSearch 결과에 나온 실제 URL만, 지어내기 금지). 다른 안내에 3~4줄이라고 되어 있어도 이 규칙이 우선. 중요도 순으로 미국·국내·정책·실적을 고루.
 - 각 줄 70자 이내, 자연스러운 한국어 문장. 이모지·마크다운 금지.
 - 숫자는 기사에서 확인한 것만. 확인 못 한 수치는 쓰지 말 것.
-- `stocks[].name`은 한국거래소 정식 종목명 그대로 (예: 삼성전자, SK하이닉스). 보드가 이 이름으로 차트를 연다.
+- 국내 종목(`market: kr`)의 `name`은 한국거래소 정식 종목명 그대로 (예: 삼성전자, SK하이닉스). 보드가 이 이름으로 차트를 연다.
+- 미국 종목(`market: us`)은 `name`에 한국어 통용 이름(엔비디아, 테슬라), `symbol`에 티커(NVDA, TSLA)를 꼭 넣는다. 보드가 티커로 차트를 연다.
+- `c`(등락률 %)는 기사에서 확인한 경우만 숫자로 넣고, 모르면 키를 빼라. 국내는 보드가 실시간 값으로 덮어쓴다.
+- 거래대금 순위를 기사로 확인 못 하면, 확인된 거래대금 상위권 종목으로 채우되 '1위' 같은 순위 표현은 쓰지 않는다.
 - 매수·매도 권유, 목표가, 단정적 전망 금지.
 - 시점 표현 정확히: 장 전이면 '전 거래일', 장중이면 '오전장', 마감 후면 '마감'.
