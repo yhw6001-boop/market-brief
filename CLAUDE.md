@@ -9,7 +9,7 @@
    - 국내: 오늘(장중이면 현재, 장 전이면 전 거래일) 코스피·코스닥, 외국인·기관 수급, 강세/약세 업종
    - 거래대금 상위 종목과 오른/내린 이유: 미국(가장 최근 정규장, 달러 거래대금 기준) 상위 3개, 국내(코스피·코스닥 합산) 거래대금 상위권 후보 6~10개
 2. **`brief.json` 덮어쓰기** — 아래 형식만. 다른 키 추가 금지.
-3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert all(d[k] for k in ('us','news','kr')) and len(d['news'])==5 and all(n['text'] and n['url'].startswith('http') for n in d['news']) and [x['market'] for x in d['stocks']].count('us')==3 and 3<=[x['market'] for x in d['stocks']].count('kr')<=10"`
+3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert all(d[k] for k in ('us','news','kr')) and len(d['news'])==5 and all(n['text'] and n['url'].startswith('http') and n.get('src') and n.get('at') for n in d['news']) and [x['market'] for x in d['stocks']].count('us')==3 and 3<=[x['market'] for x in d['stocks']].count('kr')<=10"`
 4. **커밋·푸시**: `git add brief.json && git commit -m "brief: <written_at>" && git push origin main`
    (푸시가 거절되면 `git pull --rebase origin main` 후 다시 푸시)
 
@@ -31,7 +31,7 @@
 
 ## 작성 규칙
 - `news`는 항상 정확히 5개. 각 항목의 `url`은 그 줄의 근거가 된 원문 기사 주소(WebSearch 결과에 나온 실제 URL만, 지어내기 금지). 다른 안내에 3~4줄이라고 되어 있어도 이 규칙이 우선. 중요도 순으로 미국·국내·정책·실적을 고루.
-- `news[].src`는 그 기사의 언론사 이름(예: 연합뉴스, 한국경제, SBS Biz). `news[].at`은 기사 발행(입력) 시각을 한국시간 'YYYY-MM-DD HH:MM'으로 쓴다. 검색 결과의 '며칠 전'이나 기사 주소 속 숫자로 추측하지 말고, 반드시 WebFetch로 기사를 열어 '입력' 시각(또는 article:published_time)을 확인한다. 해외 매체는 시간대(UTC·미국 시간)를 한국시간으로 바꾼다. 시각은 모르고 날짜만 확인되면 'YYYY-MM-DD'만, 아예 모르면 `at` 키를 뺀다 (추측 금지).
+- `news[].src`는 그 기사의 언론사 이름(예: 연합뉴스, 한국경제, SBS Biz). `news[].at`은 기사 발행(입력) 시각을 한국시간 'YYYY-MM-DD HH:MM'으로 쓴다. 검색 결과의 '며칠 전'이나 기사 주소 속 숫자로 추측하지 말고, 반드시 WebFetch로 기사를 열어 '입력' 시각(또는 article:published_time)을 확인한다. 해외 매체는 시간대(UTC·미국 시간)를 한국시간으로 바꾼다. `src`와 `at`은 모든 뉴스에 반드시 넣는다. 원문에서 시각을 끝내 못 찾으면 날짜만('YYYY-MM-DD') 쓰고, 날짜도 확인 안 되는 기사는 다른 기사로 바꾼다 (추측 금지).
 - 각 줄 70자 이내, 자연스러운 한국어 문장. 이모지·마크다운 금지.
 - 숫자는 기사에서 확인한 것만. 확인 못 한 수치는 쓰지 말 것.
 - 국내 종목(`market: kr`)의 `name`은 한국거래소 정식 종목명 그대로 (예: 삼성전자, SK하이닉스). 보드가 이 이름으로 차트를 연다.
