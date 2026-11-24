@@ -10,7 +10,7 @@
    - 세계: 그날 비중 있게 다뤄진 해외 뉴스 중 시장에 영향을 주는 것 (관세·무역, 전쟁·휴전, 유가·원자재, 각국 금리·물가·경기, 중국·일본·유럽 증시, 큰 재해). 정치(선거·정당·외교 일정 등)와 국내·해외 사회 뉴스(사건·사고, 노동, 판결 등)는 조사·작성하지 않는다
    - 거래대금 상위 종목과 오른/내린 이유: 미국(가장 최근 정규장, 달러 거래대금 기준) 상위 3개, 국내(코스피·코스닥 합산) 거래대금 상위권 후보 6~10개
 2. **`brief.json` 덮어쓰기** — 아래 형식만. 다른 키 추가 금지 (`news[].cat`은 세계 뉴스에만 "세계").
-3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert len({n['url'] for n in d['news']})==len(d['news']) and len({n['text'] for n in d['news']})==len(d['news']) and all(d[k] for k in ('us','news','kr')) and len(d['us'])==3 and len(d['kr'])==3 and 20<=len(d['news'])<=25 and all(n['text'] and n['url'].startswith('http') and n.get('src') and n.get('at') for n in d['news']) and [x['market'] for x in d['stocks']].count('us')==3 and 3<=[x['market'] for x in d['stocks']].count('kr')<=10 and all(x['why'].endswith('요.') for x in d['stocks'])"` (실패하면 고친 뒤 다시 검증)
+3. **검증**: `python3 -c "import json;d=json.load(open('brief.json'));assert len({n['url'] for n in d['news']})==len(d['news']) and len({n['text'] for n in d['news']})==len(d['news']) and all(d[k] for k in ('us','news','kr')) and len(d['us'])==3 and len(d['kr'])==3 and 20<=len(d['news'])<=25 and all(n['text'] and n['url'].startswith('http') and n.get('src') and n.get('at') for n in d['news']) and [x['market'] for x in d['stocks']].count('us')==3 and 3<=[x['market'] for x in d['stocks']].count('kr')<=10 and all(x['why'].endswith(('요.','니다.')) for x in d['stocks'])"` (실패하면 고친 뒤 다시 검증)
 4. **커밋·푸시**: `git add brief.json && git commit -m "brief: <written_at>" && git push origin main`
    (푸시가 거절되면 `git pull --rebase origin main` 후 다시 푸시)
 
@@ -36,7 +36,7 @@
 - `news[].src`는 그 기사의 언론사 이름(예: 연합뉴스, 한국경제, SBS Biz). `news[].at`은 기사 발행 날짜·시각을 한국시간으로 쓴다: 검색 결과에 보이는 발행 정보로 'YYYY-MM-DD HH:MM'(시각까지 보일 때) 또는 'YYYY-MM-DD'(날짜만 보일 때). 사용량을 아끼기 위해 시각 확인용으로 기사를 하나하나 WebFetch로 열지 않는다 — 보드 서버가 원문 페이지를 직접 열어 정확한 발행 시각으로 바로잡는다. 기사 주소 속 숫자로 시각을 추측하지 말 것. `src`와 `at`은 모든 뉴스에 반드시 넣고, 날짜조차 알 수 없는 기사는 다른 기사로 바꾼다.
 - `us`·`kr`은 그날 시황의 핵심을 정확히 3줄로 쓴다: 1줄 지수 마감(등락률), 2줄 움직인 원인, 3줄 업종·종목 또는 수급·금리·환율. 각 줄은 자연스러운 한 문장(70자 이내).
 - `news[].text`는 그 기사의 원래 제목을 그대로 쓴다 (내가 요약하거나 고쳐 쓰지 않는다). 제목 끝의 ' - 언론사', ' | 언론사' 같은 꼬리만 뗀다. 보드 서버도 원문 페이지 제목으로 한 번 더 맞춘다.
-- `stocks[].why`는 존댓말 한 문장(~했어요, ~됐어요, ~이에요)으로 쓰고 마지막은 '요.'로 끝낸다. '~했다.' 같은 반말 금지.
+- `stocks[].why`는 존댓말 한 문장(~했어요, ~됐어요, ~이에요)으로 쓰고 마지막은 '요.'로 끝낸다. 형용사로 끝나 '~요'가 어색하면 '~니다.'(예: 기대감이 큽니다.)도 된다. '~했다.', '~크다.' 같은 반말 금지.
 - 그 밖의 줄은 70자 이내, 자연스러운 한국어 문장. 이모지·마크다운 금지.
 - 숫자는 기사에서 확인한 것만. 확인 못 한 수치는 쓰지 말 것.
 - 국내 종목(`market: kr`)의 `name`은 한국거래소 정식 종목명 그대로 (예: 삼성전자, SK하이닉스). 보드가 이 이름으로 차트를 연다.
